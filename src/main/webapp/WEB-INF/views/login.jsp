@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Mohanraj Login</title>
+    <title>Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -89,7 +89,7 @@
         <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
             <form class="login100-form validate-form" method="POST" action="${contextPath}/login">
                 <span class="login100-form-title p-b-49">
-                    Login
+                   Mohanraj Login
                 </span>
 
                 <!-- Display error message if any -->
