@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+	tools {
+                maven 'Maven_3911'
+                jdk 'JDK21'
+            }
+
+    stages {
+        stage('Git Clone') {
+            steps {
+                git changelog: false, url: 'https://github.com/mohansgithub/ci-vprofile-sample.git'
+            }
+        }
+		stage('Maven Build') {
+            steps {
+                bat 'mvn clean package'
+            }
+        }
+		stage('Unit Tests') {
+            steps {
+                deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: '40dcd514-f65c-4cef-8317-e688a8504cf6', path: '', url: 'http://localhost:9090')], contextPath: '/DevOpsPortal', war: '**/*.war'
+            }
+        }
+		stage('Deploy Completed') {
+            steps {
+                echo 'I am Done'
+            }
+        }
+    }
+}
